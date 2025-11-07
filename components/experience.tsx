@@ -1,3 +1,4 @@
+import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 import { Badge } from "@/components/ui/badge";
 import { Building2, Calendar } from "lucide-react";
 
@@ -54,7 +55,7 @@ const ExperienceItem = ({
 const Experience = () => {
   const experiences = [
     {
-      title: "Senior Full Stack Developer",
+      title: "Senior Cloud Engineer",
       company: "TechCorp Solutions",
       period: "2021 - Present",
       description:
@@ -62,7 +63,7 @@ const Experience = () => {
       technologies: ["React", "Node.js", "TypeScript", "AWS", "MongoDB"],
     },
     {
-      title: "Full Stack Developer",
+      title: "Cloud Computing Engineer",
       company: "Digital Innovations Inc",
       period: "2019 - 2021",
       description:
@@ -70,7 +71,7 @@ const Experience = () => {
       technologies: ["React", "Express.js", "PostgreSQL", "Docker", "Redis"],
     },
     {
-      title: "Frontend Developer",
+      title: "Cloud Consultant",
       company: "WebTech Studios",
       period: "2018 - 2019",
       description:
@@ -80,8 +81,16 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="relative py-20 px-6">
-      <div className="max-w-screen-md mx-auto">
+    <section id="experience" className="relative py-20 px-6 overflow-hidden">
+      {/* Animated Background */}
+      <AnimatedGridPattern
+        numSquares={25}
+        maxOpacity={0.08}
+        duration={4}
+        className="absolute inset-0 skew-y-12 [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
+      />
+
+      <div className="max-w-screen-md mx-auto relative z-[1]">
         <div className="text-center mb-12">
           <Badge variant="secondary" className="mb-4">
             Experience

@@ -2,7 +2,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
-import { GithubLogo } from "./icons";
 
 interface ProjectCardProps {
   title: string;
@@ -10,7 +9,6 @@ interface ProjectCardProps {
   image: string;
   technologies: string[];
   liveUrl?: string;
-  githubUrl?: string;
 }
 
 const ProjectCard = ({
@@ -19,7 +17,6 @@ const ProjectCard = ({
   image,
   technologies,
   liveUrl,
-  githubUrl,
 }: ProjectCardProps) => {
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-xl border border-accent transition-all hover:border-primary/50">
@@ -50,22 +47,9 @@ const ProjectCard = ({
         {/* Actions */}
         <div className="flex gap-3 mt-auto">
           {liveUrl && (
-            <Button variant="default" className="rounded-full" asChild>
+            <Button variant="default" className="rounded-full p-2" asChild>
               <a href={liveUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="mr-1 h-4 w-4" />
-                Live Demo
-              </a>
-            </Button>
-          )}
-          {githubUrl && (
-            <Button
-              variant="outline"
-              className="rounded-full shadow-none"
-              asChild
-            >
-              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                <GithubLogo className="mr-1 h-4 w-4" />
-                View Code
+                <ExternalLink className="h-5 w-5" />
               </a>
             </Button>
           )}
@@ -78,40 +62,36 @@ const ProjectCard = ({
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Company X",
       description:
         "A full-featured e-commerce platform with real-time inventory management, payment processing, and admin dashboard.",
       image: "/placeholder.svg",
       technologies: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL"],
       liveUrl: "https://ecommerce-demo.com",
-      githubUrl: "https://github.com/username/ecommerce",
     },
     {
-      title: "AI Task Manager",
+      title: "Company Y",
       description:
         "Smart task management app that uses AI to categorize, prioritize, and suggest optimal task scheduling.",
       image: "/placeholder.svg",
       technologies: ["React", "Python", "TensorFlow", "FastAPI", "MongoDB"],
       liveUrl: "https://ai-taskmanager.com",
-      githubUrl: "https://github.com/username/ai-taskmanager",
     },
     {
-      title: "Real-time Chat Application",
+      title: "Company Z",
       description:
         "Feature-rich chat application with real-time messaging, file sharing, and video calls.",
       image: "/placeholder.svg",
       technologies: ["React", "Socket.io", "WebRTC", "Node.js", "Redis"],
       liveUrl: "https://chatapp-demo.com",
-      githubUrl: "https://github.com/username/chat-app",
     },
     {
-      title: "AI Image Generator",
+      title: "Company A",
       description:
         "An AI image generator that uses a model to generate images based on a prompt.",
       image: "/placeholder.svg",
       technologies: ["React", "Next.js", "Tailwind CSS", "Shadcn UI"],
       liveUrl: "https://ai-image-generator.com",
-      githubUrl: "https://github.com/username/ai-image-generator",
     },
   ];
 

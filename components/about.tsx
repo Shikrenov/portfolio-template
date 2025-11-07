@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { Download } from "lucide-react";
 import Image from "next/image";
 import { HTMLAttributes } from "react";
-import { GithubLogo } from "./icons";
 
 const About = () => {
   return (
@@ -23,18 +22,17 @@ const About = () => {
               Passionate about creating impactful web experiences
             </h2>
             <p className="text-muted-foreground mb-6 text-justify">
-              With over 5 years of experience in full-stack development, I
-              specialize in building scalable web applications using modern
-              technologies. My expertise includes React, Node.js, and cloud
-              architecture. I&apos;m passionate about creating elegant solutions
-              to complex problems and sharing knowledge with the developer
-              community.
+              With over 5 years of experience as a Cloud Consultant, I help
+              businesses design, implement, and optimize scalable cloud
+              infrastructures tailored to their goals. I specialize in AWS,
+              Azure, and Google Cloud, focusing on performance, security, and
+              cost efficiency. I’m passionate about guiding organizations
+              through seamless cloud migrations and enabling them to harness the
+              full potential of cloud technologies to innovate and grow.
             </p>
+
+            {/* Buttons */}
             <div className="flex flex-wrap gap-4 justify-start">
-              <Button className="rounded-full">
-                <GithubLogo />
-                View Github
-              </Button>
               <Button variant="outline" className="rounded-full">
                 <Download />
                 Download CV
@@ -57,4 +55,5 @@ const ProfileImage = ({
     </div>
   </div>
 );
+
 export default About;

@@ -19,7 +19,7 @@ const Hero = () => {
       <div className="relative z-[1] text-center max-w-screen-md">
         <Badge className="rounded-full border-none">
           <Zap className="fill-current" />
-          Fullstack Web Developer
+          Cloud Consultant
         </Badge>
         <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-bold !leading-[1.2] tracking-tight">
           Building Scalable & Engaging Web Experiences
