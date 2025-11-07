@@ -15,7 +15,7 @@ const About = () => {
           {/* Content */}
           <div className="flex-1 md:text-left">
             <Badge variant="secondary" className="mb-4">
-              About Me
+              About Us
             </Badge>
             <ProfileImage className="mt-3 mb-8 block md:hidden" />
             <h2 className="text-4xl font-bold mb-4 tracking-tight">
