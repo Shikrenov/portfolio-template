@@ -25,11 +25,11 @@ const Hero = () => {
           Building Scalable & Engaging Web Experiences
         </h1>
         <p className="mt-6 text-[17px] md:text-lg">
-          Hey there! I&apos;m a John Doe, a Full Stack Developer who loves
-          building cool and scalable web experiences. From crafting beautiful
-          frontends to powering robust backends, I bring ideas to life with
-          clean code and great design. Let&apos;s create something amazing
-          together! 🚀
+          Hey there! I’m Ilia Iliev, a Cloud Consultant passionate about helping
+          businesses scale through smart, efficient cloud solutions. From
+          designing secure architectures to optimizing cloud performance, I turn
+          complex challenges into seamless digital experiences. Let’s take your
+          cloud strategy to the next level! ☁️🚀
         </p>
         <div className="mt-12 flex items-center justify-center gap-4">
           <Button size="lg" className="rounded-full text-base">
