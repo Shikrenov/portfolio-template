@@ -13,17 +13,43 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setStatus('idle');
+    setErrorMessage("");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", message: "" });
+    setStatus('loading');
+    setErrorMessage("");
+
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setStatus('success');
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message');
+    }
   };
 
   return (
@@ -84,13 +110,22 @@ const Contact = () => {
             required
           />
 
-          <Button
-            type="submit"
-            variant="default"
-            className="rounded-full w-fit self-center mt-4 px-6"
-          >
-            Send Message
-          </Button>
+          <div className="flex flex-col items-center gap-2">
+            <Button
+              type="submit"
+              variant="default"
+              className="rounded-full w-fit px-6"
+              disabled={status === 'loading'}
+            >
+              {status === 'loading' ? 'Sending...' : 'Send Message'}
+            </Button>
+            {status === 'success' && (
+              <p className="text-green-500">Message sent successfully!</p>
+            )}
+            {status === 'error' && (
+              <p className="text-red-500">{errorMessage}</p>
+            )}
+          </div>
         </form>
       </div>
     </section>
